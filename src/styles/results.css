@@ -69,7 +69,7 @@
 
 .results-page .table-scroll {
   overflow-x: auto;
-  border: 1px solid var(--results-border);
+  border: 2px solid var(--results-green);
   border-radius: 12px;
   background: #fff;
   box-shadow: 0 8px 28px rgb(12 67 132 / 7%);
@@ -87,8 +87,8 @@
 .results-page .modern-table td {
   min-width: 7rem;
   padding: 0.9rem 1rem;
-  border-right: 1px solid var(--results-border);
-  border-bottom: 1px solid var(--results-border);
+  border-right: 1px solid var(--results-green);
+  border-bottom: 1px solid var(--results-green);
   vertical-align: top;
   overflow-wrap: anywhere;
 }
@@ -97,15 +97,6 @@
   background: var(--results-blue);
   color: #fff;
   font-weight: 700;
-}
-
-.results-page .modern-table tr:nth-child(even) td {
-  background: #f8fbfe;
-}
-
-.results-page .modern-table th:last-child,
-.results-page .modern-table td:last-child {
-  border-right: 0;
 }
 
 .results-page .modern-table tr:last-child td {
