@@ -1,0 +1,28 @@
+/* ==========================================================================
+   brand-bar.css — institution logo strip (shared by index.html and women.html)
+   ========================================================================== */
+.brand-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(14px, 2vw, 30px);
+  width: max-content;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: clamp(8px, 1.2vh, 14px) clamp(16px, 2.4vw, 36px);
+  background: var(--color-surface);
+  border-radius: 14px;
+}
+
+.brand-bar__logo {
+  display: block;
+  width: auto;
+  height: clamp(30px, 5.2vh, 60px);
+  object-fit: contain;
+}
+
+.brand-bar__divider {
+  width: 1px;
+  height: clamp(24px, 4vh, 40px);
+  background: #cfd8d6;
+}

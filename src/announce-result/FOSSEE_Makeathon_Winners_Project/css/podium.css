@@ -1,0 +1,211 @@
+/* ==========================================================================
+   podium.css — winner cards (BEM: .winner, .winner__*, .winner--place)
+   ========================================================================== */
+.podium {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex: 1;
+  align-items: flex-end;
+  justify-content: center;
+  gap: clamp(10px, 1.8vw, 26px);
+  padding: 0 clamp(12px, 5vw, 80px);
+}
+
+.winner {
+  --medal-size: clamp(50px, min(6.4vw, 10vh), 92px);
+  --metal: var(--color-bronze);
+  --plinth: var(--color-bronze-plinth);
+  --metal-ink: var(--color-bronze-ink);
+  --plinth-min-h: clamp(190px, 27vh, 300px);
+
+  position: relative;
+  display: flex;
+  flex: 1 1 0;
+  flex-direction: column;
+  align-items: center;
+  max-width: 31%;
+  visibility: hidden;
+}
+.winner.is-visible { visibility: visible; }
+
+.winner--third  { order: 1; }
+.winner--second {
+  order: 3;
+  --metal: var(--color-silver);
+  --plinth: var(--color-silver-plinth);
+  --metal-ink: var(--color-silver-ink);
+  --plinth-min-h: clamp(225px, 32vh, 350px);
+}
+.winner--first {
+  order: 2;
+  flex-grow: 1.25;
+  max-width: 37%;
+  --medal-size: clamp(66px, min(8.6vw, 13vh), 124px);
+  --metal: var(--color-gold);
+  --plinth: var(--color-gold-plinth);
+  --metal-ink: var(--color-gold-ink);
+  --plinth-min-h: clamp(260px, 37vh, 420px);
+}
+
+/* Medal */
+.winner__medal {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: calc(var(--medal-size) * -0.34);
+}
+
+.winner__disc {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  width: var(--medal-size);
+  height: var(--medal-size);
+  border: 4px solid var(--color-bg);
+  border-radius: 50%;
+  background: var(--metal);
+  color: var(--metal-ink);
+  font-size: calc(var(--medal-size) * 0.46);
+  font-weight: 800;
+  line-height: 1;
+}
+
+.winner__ring {
+  position: absolute;
+  left: 50%; bottom: 0;
+  width: var(--medal-size);
+  height: var(--medal-size);
+  margin-left: calc(var(--medal-size) / -2);
+  border: 3px solid var(--metal);
+  border-radius: 50%;
+  opacity: 0;
+  z-index: 1;
+}
+
+.winner__crown {
+  width: calc(var(--medal-size) * 0.5);
+  height: calc(var(--medal-size) * 0.5);
+  margin-bottom: -4px;
+  color: var(--color-accent);
+  position: relative;
+  z-index: 3;
+}
+
+.winner__rays {
+  position: absolute;
+  left: 50%;
+  bottom: calc(var(--medal-size) / 2 - 120px);
+  width: 240px;
+  height: 240px;
+  margin-left: -120px;
+  color: var(--color-accent);
+  opacity: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Plinth */
+.winner__plinth {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(8px, 1.4vh, 16px);
+  width: 100%;
+  min-height: var(--plinth-min-h);
+  padding: calc(var(--medal-size) * 0.5 + 14px) clamp(10px, 1.2vw, 20px) clamp(16px, 2.4vh, 28px);
+  overflow: hidden;
+  border-radius: 12px 12px 0 0;
+  background: var(--plinth);
+  color: var(--color-ink);
+  text-align: center;
+  transform-origin: bottom center;
+}
+
+/* Shine band (animated) */
+.winner__plinth::after {
+  content: "";
+  position: absolute;
+  top: 0; bottom: 0; left: -60%;
+  width: 40%;
+  background: rgb(255 255 255 / 0.5);
+  transform: skewX(-20deg);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.winner__rank {
+  margin: 0;
+  font-size: clamp(12px, 1.15vw, 17px);
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-ink);
+}
+
+.winner__names {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  width: 100%;
+}
+
+.winner__names li {
+  font-size: clamp(15px, 1.65vw, 25px);
+  font-weight: 700;
+  line-height: 1.45;
+  color: var(--color-ink);
+  overflow-wrap: anywhere;
+}
+
+.winner--first .winner__names li {
+  font-size: clamp(26px, 3vw, 46px);
+  font-weight: 800;
+  line-height: 1.15;
+}
+
+.word { display: inline-block; white-space: nowrap; }
+.char { display: inline-block; }
+
+/* Project title — high-contrast pill */
+.winner__project {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  margin-top: auto;
+}
+
+.winner__project-label {
+  font-size: clamp(10px, 0.95vw, 13px);
+  font-weight: 800;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-ink-soft);
+}
+
+.winner__project-title {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+  padding: 0.45em 1.1em;
+  border-radius: 999px;
+  background: var(--color-bg);
+  color: #fff;
+  font-size: clamp(15px, 1.5vw, 22px);
+  font-weight: 800;
+  letter-spacing: 0.02em;
+}
+
+.winner--first .winner__project-title { font-size: clamp(18px, 1.9vw, 28px); }
+
+.winner__project-title svg {
+  flex: none;
+  width: 1.15em;
+  height: 1.15em;
+  color: var(--color-accent);
+}

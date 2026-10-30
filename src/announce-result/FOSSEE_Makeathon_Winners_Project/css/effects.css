@@ -1,0 +1,34 @@
+/* ==========================================================================
+   effects.css — confetti, sparkles, screen flash (elements are created by js/effects.js)
+   ========================================================================== */
+.fx-layer {
+  position: absolute;
+  inset: 0;
+  z-index: 6;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.confetti {
+  position: absolute;
+  top: -20px;
+  border-radius: 2px;
+  animation: confetti-fall var(--fall-time, 3s) ease-in forwards;
+}
+
+.spark {
+  position: absolute;
+  background: #ffe9a0;
+  clip-path: polygon(50% 0, 60% 40%, 100% 50%, 60% 60%, 50% 100%, 40% 60%, 0 50%, 40% 40%);
+  animation: spark-twinkle 1.6s ease-in-out forwards;
+}
+
+.flash {
+  position: absolute;
+  inset: 0;
+  z-index: 7;
+  background: #fff;
+  opacity: 0;
+  pointer-events: none;
+}
+.flash.is-active { animation: flash-fade 0.7s ease-out; }

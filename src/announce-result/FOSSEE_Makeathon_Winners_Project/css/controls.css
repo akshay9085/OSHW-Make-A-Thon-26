@@ -1,0 +1,53 @@
+/* ==========================================================================
+   controls.css — reveal button, step label, live announcement
+   ========================================================================== */
+.controls {
+  position: relative;
+  z-index: 8;
+  padding: clamp(8px, 1.4vh, 18px) 4vw clamp(8px, 1.6vh, 20px);
+  text-align: center;
+}
+
+.controls__step {
+  margin: 0 0 8px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: #8fdccf;
+}
+
+.btn-reveal {
+  min-width: min(80vw, 320px);
+  padding: 11px 30px;
+  border: 0;
+  border-radius: 999px;
+  background: var(--color-accent);
+  color: var(--color-accent-ink);
+  font: 800 clamp(14px, 1.2vw, 18px) var(--font-sans);
+  letter-spacing: 0.03em;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.1s;
+}
+.btn-reveal:hover { background: var(--color-accent-light); }
+.btn-reveal:active { transform: scale(0.98); }
+.btn-reveal:focus-visible { outline: 3px solid #fff; outline-offset: 4px; }
+.btn-reveal:disabled { background: #2a7a72; color: #e6faf6; cursor: default; }
+
+.controls__announce {
+  min-height: 20px;
+  margin: 6px 0 0;
+  font-size: 14px;
+  color: #d9f6f0;
+}
+
+.controls__link {
+  display: inline-block;
+  margin-top: 6px;
+  color: var(--color-text-soft);
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  border-bottom: 1px solid currentColor;
+}
+.controls__link:hover { color: #fff; }
+.controls__link:focus-visible { outline: 3px solid var(--color-accent); outline-offset: 3px; }

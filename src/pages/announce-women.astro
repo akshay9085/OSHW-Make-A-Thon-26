@@ -1,0 +1,143 @@
+---
+import OSHW from "../assets/Images/logo_3.png";
+import womenInnovators from '../announce-result/FOSSEE_Makeathon_Winners_Project/images/women-innovators.png';
+
+import iitbLogo from '../announce-result/FOSSEE_Makeathon_Winners_Project/images/iitb.jpg';
+import fosseeLogo from '../announce-result/FOSSEE_Makeathon_Winners_Project/images/fossee.png';
+import openHardwareLogo from '../announce-result/FOSSEE_Makeathon_Winners_Project/images/openhw.png';
+
+import '../announce-result/FOSSEE_Makeathon_Winners_Project/css/tokens.css';
+import '../announce-result/FOSSEE_Makeathon_Winners_Project/css/base.css';
+import '../announce-result/FOSSEE_Makeathon_Winners_Project/css/brand-bar.css';
+import '../announce-result/FOSSEE_Makeathon_Winners_Project/css/women.css';
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fdf8ee">
+  <meta name="description" content="Notable contributions by women innovators at the FOSSEE Open Hardware Makeathon 2026.">
+  <title>Notable Women Innovators — FOSSEE Open Hardware Makeathon 2026</title>
+
+  <link rel="icon" type="image/png" href={OSHW.src} />
+</head>
+<body class="women-page">
+  <!-- Inline SVG icon sprite (offline-friendly) -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <defs>
+      <symbol id="icon-flame" viewBox="0 0 24 24"><path fill="currentColor" d="M13 2c.6 4.2 5.5 6.2 5.5 12a6.5 6.5 0 0 1-13 0c0-2.6 1.2-4.2 2.6-5.6.1 2 .9 3.2 2.1 3.6C9.4 8.4 10.5 4.6 13 2z"/></symbol>
+      <symbol id="icon-weather" viewBox="0 0 24 24"><path fill="currentColor" d="M7 19a5 5 0 0 1-.6-9.96A6.5 6.5 0 0 1 19 9.5a4.75 4.75 0 0 1-.5 9.5z"/></symbol>
+      <symbol id="icon-spark" viewBox="0 0 24 24"><path fill="currentColor" d="M12 1l2.6 8.4L23 12l-8.4 2.6L12 23l-2.6-8.4L1 12l8.4-2.6z"/></symbol>
+    </defs>
+  </svg>
+
+  <div class="layout">
+
+    <!-- Left: artwork (fades into the page background) -->
+    <aside class="art" aria-hidden="true">
+      <img class="art__img" src={womenInnovators.src} alt="" width="276" height="647">
+    </aside>
+
+    <!-- Right: content -->
+    <div class="content">
+
+      <!-- Decorative circuit traces, echoing the artwork -->
+      <svg class="circuit" viewBox="0 0 320 200" aria-hidden="true" focusable="false">
+        <g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path pathLength="1" d="M320 28H240l-26 26h-62"/>
+          <path pathLength="1" d="M320 68h-52l-24 24v46"/>
+          <path pathLength="1" d="M320 108h-22l-20 20h-54"/>
+          <path pathLength="1" d="M320 148h-80l-18 18v22"/>
+          <circle cx="148" cy="54" r="4"/><circle cx="244" cy="144" r="4"/>
+          <circle cx="220" cy="128" r="4"/><circle cx="222" cy="190" r="4"/>
+        </g>
+      </svg>
+
+      <div class="wrap">
+
+        <header class="head">
+          <div class="brand-bar" role="group" aria-label="Organising institutions">
+            <img class="brand-bar__logo" src={iitbLogo.src} alt="IIT Bombay" width="877" height="840">
+            <span class="brand-bar__divider" aria-hidden="true"></span>
+            <img class="brand-bar__logo" src={fosseeLogo.src} alt="FOSSEE" width="1883" height="695">
+            <span class="brand-bar__divider" aria-hidden="true"></span>
+            <img class="brand-bar__logo" src={openHardwareLogo.src} alt="Open Hardware" width="1647" height="733">
+          </div>
+
+          <h1 class="event__title">FOSSEE <span class="event__accent">OPEN HARDWARE</span></h1>
+          <div class="event__meta">
+            <span class="event__pill">MAKEATHON 2026</span>
+            <span class="event__theme">Disaster Detection &amp; Early Warning Systems</span>
+          </div>
+        </header>
+
+        <main class="spotlight">
+          <p class="spotlight__eyebrow"><svg aria-hidden="true"><use href="#icon-spark"/></svg>Women in Open Hardware</p>
+          <h2 class="spotlight__title">Notable Contribution by <em>Women Innovators</em></h2>
+
+          <ol class="cards">
+
+            <li class="card card--fire">
+              <article aria-labelledby="proj-fire">
+                <div class="card__top">
+                  <!-- <span class="card__index" aria-hidden="true">01</span> -->
+                  <!-- <span class="card__line" aria-hidden="true"></span> -->
+                </div>
+                <div class="card__project">
+                   <span class="card__icon" aria-hidden="true"><svg><use href="#icon-weather"/></svg></span>
+           
+                  <div>
+                    <p class="card__label">Project</p>
+                    <h3 class="card__title" id="proj-fire">Air Quality Monitoring</h3>
+                  </div>
+                </div>
+                <p class="card__label">Innovators</p>
+                <ul class="innovators">
+                  <li class="innovator" style="--i:0"><span class="innovator__avatar" aria-hidden="true">A</span>ALEESHA SULTANA A </li>
+                  <li class="innovator" style="--i:1"><span class="innovator__avatar" aria-hidden="true">D</span>DHANA SRI.T</li>
+                   <li class="innovator" style="--i:2"><span class="innovator__avatar" aria-hidden="true">G</span>GOKILAVARSHINI.A</li>
+                  <li class="innovator" style="--i:3"><span class="innovator__avatar" aria-hidden="true">K</span>KAVIYA.M</li>
+                </ul>
+              </article>
+            </li>
+
+            <li class="card card--weather">
+              <article aria-labelledby="proj-weather">
+                <div class="card__top">
+                  <!-- <span class="card__index" aria-hidden="true">02</span>
+                  <span class="card__line" aria-hidden="true"></span> -->
+                </div>
+                <div class="card__project">
+                        <span class="card__icon" aria-hidden="true"><svg><use href="#icon-flame"/></svg></span>
+                  <div>
+                    <p class="card__label">Project</p>
+                    <h3 class="card__title" id="proj-weather">Forest Fire Detection</h3>
+                  </div>
+                </div>
+                <p class="card__label">Innovators</p>
+                <ul class="innovators">
+                 
+                  <li class="innovator" style="--i:4"><span class="innovator__avatar" aria-hidden="true">A</span>Anushka Ramesh Gapat</li>
+                  <li class="innovator" style="--i:5"><span class="innovator__avatar" aria-hidden="true">A</span>Aarya Ashok Sarangkar</li>
+                </ul>
+              </article>
+            </li>
+
+          </ol>
+        </main>
+
+        <footer class="foot">
+          <p class="foot__note">Celebrating women who turn ideas into open hardware.</p>
+          <a class="foot__back" href="/temp-results">&larr; Show Results</a>
+        </footer>
+
+      </div>
+    </div>
+  </div>
+
+  <script >
+  import '../announce-result/FOSSEE_Makeathon_Winners_Project/js/women.js';
+  </script>
+</body>
+</html>
