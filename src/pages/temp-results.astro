@@ -1,0 +1,88 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+
+import '../styles/results.css';
+import { readFileSync } from 'node:fs';
+import { read } from 'xlsx';
+import { resultRows } from '../lib/result-sheet';
+
+// Read at build time; only rendered table content is sent to the browser.
+const workbook = read(readFileSync('src/data/results.xlsx'));
+const sheets = workbook.SheetNames
+  .filter((_, index) => !workbook.Workbook?.Sheets?.[index]?.Hidden)
+  .map(name => ({ name, rows: resultRows(workbook.Sheets[name]) }));
+---
+<Layout title="OSHW Makeathon 2026">
+  <Navbar />
+<main class="site-main results-page" id="main-content">
+<div class="section-inner">
+<h1 class="text-center section-title" id="results">Dummy Test Results</h1>
+
+<div class="tabs" aria-label="Result worksheets">
+  {sheets.map((sheet, index) => (
+    <button type="button" class:list={['tab', { active: index === 0 }]}
+      data-tab={index} aria-controls={`tab-${index}`} aria-pressed={index === 0}>
+      {sheet.name}
+    </button>
+  ))}
+</div>
+<div class="tab-content">
+  {sheets.map((sheet, index) => (
+    <div class:list={['tab-panel', { active: index === 0 }]} id={`tab-${index}`}>
+      {sheet.rows.length ? (
+        <div class="table-scroll">
+          <table class="modern-table" aria-label={sheet.name}>
+            <tbody>
+              {sheet.rows.map((row, rowIndex) => (
+                <tr>
+                  {row.map(cell => rowIndex === 0 ? (
+                    <th rowspan={cell.rowspan} colspan={cell.colspan}>{cell.text}</th>
+                  ) : (
+                    <td rowspan={cell.rowspan} colspan={cell.colspan}>{cell.text}</td>
+                  ))}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      ) : <p>No results in this worksheet yet.</p>}
+      {sheet.name.trim().toLowerCase() === 'good submissions' && (
+        <p class="text-lg mt-4"><mark>Note: A certificate of appreciation will be given to all the Good submissions.</mark></p>
+      )} 
+    </div>
+  ))}
+  {sheets.length === 0 && <p>No visible result worksheets found.</p>}
+</div>
+
+</div>
+</main>
+<Footer/>
+<script>
+  document.querySelectorAll('.tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      const activeTab = document.querySelector('.tab.active');
+      const activePanel = document.querySelector('.tab-panel.active');
+
+      if (activeTab) {
+        activeTab.classList.remove('active');
+        activeTab.setAttribute('aria-pressed', 'false');
+      }
+
+      if (activePanel) {
+        activePanel.classList.remove('active');
+      }
+
+      tab.classList.add('active');
+      tab.setAttribute('aria-pressed', 'true');
+      const tabIndex = tab.getAttribute('data-tab');
+      const targetPanel = document.getElementById(`tab-${tabIndex}`);
+      if (targetPanel) {
+        targetPanel.classList.add('active');
+      }
+    });
+  });
+</script>
+</Layout>
+
